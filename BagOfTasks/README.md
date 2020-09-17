@@ -1,4 +1,4 @@
-TestBagOfTasks est la version multi-thread le temps d'exécution avec 6 threads est :
+'TestBagOfTasks' est la version multi-thread le temps d'exécution avec 6 threads est :
 ```
 real	4m43,389s
 user	28m19,535s
@@ -9,3 +9,11 @@ sur un processeur Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz
 
 
 Notez que dans le programme, il n'y a pas de gestion de la concurrence, le speedup est de l'ordre de 6.
+
+Test
+real	4m25,348s
+user	26m30,757s
+sys	0m0,340s
+
+
+
