@@ -1,5 +1,6 @@
 TestBagOfTasks est la version multi-thread le temps d'exécution avec 6 threads est :
-```real	4m43,389s
+```
+real	4m43,389s
 user	28m19,535s
 sys	0m0,172s```
 
