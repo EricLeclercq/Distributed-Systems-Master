@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <mpi.h>
+/* Exemple du cours */
 
 int main(int argc, char *argv[]) {
   int num_tasks, rank, namelen;
