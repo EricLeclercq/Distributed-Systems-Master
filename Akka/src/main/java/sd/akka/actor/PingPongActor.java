@@ -29,7 +29,7 @@ public class PingPongActor extends AbstractActor {
 	public void continueGame(ActorRef adversaire, Message message) {
 		/*
 		 * A la réception d'une balle, le joueur peut la rater ou réussir à la renvoyer.
-		 * S'il rate il prévient l'adversaire avec un message Miss, l'il réussi il renvoie la balle.
+		 * S'il rate il prévient l'adversaire avec un message Miss, s'il réussit il renvoie la balle.
 		 */
 		if (Math.random() > 0.7) {
 			System.out.println(this.getSelf().path().name() + " rate la balle !");
