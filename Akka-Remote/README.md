@@ -11,11 +11,11 @@ mvn clean compile install
 Lancer d'abord le serveur :
 
 ```
-mvn -pl serveur -Dexec.mainClass="sd.akka.App"
+mvn -pl serveur exec:java -Dexec.mainClass="sd.akka.App"
 ```
 
 Puis le client :
 
 ```
-mvn -pl client -Dexec.mainClass="sd.akka.App"
+mvn -pl client exec:java -Dexec.mainClass="sd.akka.App"
 ```
