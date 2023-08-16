@@ -26,9 +26,17 @@ public class ArbitreActor extends AbstractActor {
 		return receiveBuilder()
 				.match(GetScore.class, message -> getScore())
 				.match(StartGame.class, message -> startGame(getSender()))
+				.build();
+	}
+
+	public Receive createReceivePartieEnCours() {
+		return receiveBuilder()
+				.match(GetScore.class, message -> getScore())
+				.match(StartGame.class, message -> getSender().tell("Arbitre occupé, partie en cours", getSelf()))
 				.match(EndGame.class, message -> endGame())
 				.build();
 	}
+
 
 	public void endGame() {
 		/*
@@ -36,12 +44,14 @@ public class ArbitreActor extends AbstractActor {
 		 */
 		respondTo.tell("Fini", getSelf());
 		respondTo = null;
+		getContext().become(createReceive());
 	}
 	
 	public void startGame(ActorRef respondTo) {
 		/*
 		 * Le jeu commence, l'arbitre choisit quel joueur engage.
 		 */
+		getContext().become(createReceivePartieEnCours()); // Changement de comportement pour ne pas lancer 2 parties en même temps
 		this.respondTo = respondTo;
 		if (Math.random() > 0.5) {
 			joueur1.forward(new PingPongActor.StartGame(joueur2), getContext());
